@@ -15,6 +15,8 @@ public class ContabilidadUIA {
 		public ArrayList<ClienteJSP> listaProveedores = null;
 		public ArrayList<ClienteJSP> listaCuentas = null;
 		public ArrayList<ClienteJSP> listaCompras = null;
+		public ArrayList<ClienteJSP> listaReqs = null;
+		public ArrayList<ClienteJSP> listaCheques = null;
 		public Proveedor proveedor = null;
 		public String clienteId="";
 
@@ -73,14 +75,6 @@ public class ContabilidadUIA {
 			
 		}
 
-
-		public ArrayList<ClienteJSP> getCuentas(String clienteName) 
-		{
-			this.listaCuentas = proveedor.getListaCuentas();
-			return this.listaCuentas;
-		}
-
-
 		public ArrayList<ClienteJSP> getCompras(String clienteId) {
 			this.clienteId = clienteId;
 			proveedor = (Proveedor) this.gestorProveedores.busca(clienteId);
@@ -98,14 +92,39 @@ public class ContabilidadUIA {
 		public ArrayList<ClienteJSP> getListaCompras() {
 			return listaCompras;
 		}
+		
+		public ArrayList<ClienteJSP> getCuentas(String clienteName) 
+		{			
+			this.listaCuentas = proveedor.getListaCuentas();
+			this.getReqs(clienteId);
+			return this.listaCuentas;
+		}
 
 		public ArrayList<ClienteJSP> getListaCuentas() {
 			return listaCuentas;
 		}
 		
-		
-		public ArrayList<ClienteJSP> getCheques(String clienteId2) {
-			// TODO Auto-generated method stub
-			return null;
+		public ArrayList<ClienteJSP> getReqs(String clienteId) 
+		{
+			this.listaReqs = proveedor.getListaReqs();
+			this.getCheques(clienteId);
+			return this.listaReqs;
 		}
+		
+		public ArrayList<ClienteJSP> getListaReqs() {
+			return this.listaReqs;
+		}
+		
+		public ArrayList<ClienteJSP> getCheques(String clienteId) 
+		{
+			this.listaCheques = proveedor.getListaCheques();
+			return this.listaCheques;
+		}
+		
+		//Devuelve la lista a ClientesController
+		public ArrayList<ClienteJSP> getListaCheques() {
+			return listaCheques;
+		}		
+		
+		
 }

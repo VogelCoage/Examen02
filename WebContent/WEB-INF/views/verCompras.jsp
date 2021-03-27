@@ -23,56 +23,64 @@
         	<c:forEach var="cliente" items="${clientes}">
                 <tr>
                     <td><c:out value="${cliente.name}" /></td>
-                    <c:choose>
-                    <c:when test="${cliente.name == clienteActual}">
-	                    <td>                     
-		                    <table border=1>
-					        <tbody>
+	                    <c:choose>
+	                    <c:when test="${cliente.name == clienteActual}">
+	                    	<td>                     
+		                    	<table border=1>
+					        		<tbody>
 							        	<c:forEach var="compra" items="${compras}">
 						                <tr>
 						                    <td><c:out value="${compra.name}" /></td>
 						                    <td><c:out value="${compra.id}" /></td>
 						                </tr>
 						            	</c:forEach>
-		                    </tbody>
-		    				</table>
-	                    </td>                     
-	    				<td>  
-		                    <c:choose>
-		                    <c:when test="${cliente.name == clienteActual}">
+		                    		</tbody>
+		    					</table>
+	                    	</td>                     
+	    					<td>  
+		                    	<c:choose>
+		                    	<c:when test="${cliente.name == clienteActual}">
 				                    <table border=1>
-							        <tbody>
-									        	<c:forEach var="cuenta" items="${cuentas}">
+							        	<tbody>
+									        <c:forEach var="cuenta" items="${cuentas}">
 								                <tr>
 								                    <td><c:out value="${cuenta.name}" /></td>
 								                    <td><c:out value="${cuenta.id}" /></td>
 								                </tr>
-								            	</c:forEach>
-				                    </tbody>
+								            </c:forEach>
+				                    	</tbody>
 				    				</table>
-			            </td>                     
-	    				<td>Pendiente</a></td>
-	    				<td>Pendiente</a></td>
-	    				<td>Pendiente</a></td>
+				    			</c:when>  
+				    			</c:choose>
+			            	</td>                     
+	    					<td>
+	    				
+	    						<c:choose>
+		                    	<c:when test="${cliente.name == clienteActual}">
+				                    <table border=1>
+							        	<tbody>
+									        <c:forEach var="requisicion" items="${cheques}">
+								                <tr>
+								                    <td><c:out value="${requisicion.name}" /></td>
+								                    <td><c:out value="${requisicion.id}" /></td>
+								                </tr>
+								            </c:forEach>
+				                    	</tbody>
+				    				</table>
+				    			</c:when>  
+				    			</c:choose>
+	    				
+	    					</td>
+	    					<td>Pendiente</td>
+	    					<td>Pendiente</td>
+	    				
 	    				</c:when>  
-		                    </c:choose>
-	    				</td>  
-    				</c:when>  
-    				<c:otherwise>
-	                    <td></td>
-	    				<td></td>
-	                    <td></td>
-	                    <td></td>
-	                    <td></td>
-			         </c:otherwise>  				
-                    </c:choose>
-                </tr>
+				    	</c:choose>
+                	</tr>
             </c:forEach>
         </tbody>
     </table>
     <p>Agregar Cliente (Pendiente)</p>
-	</body>
-    </table>
     <p>Agregar Cuenta (Pendiente)</p>
 </body>
 </html>

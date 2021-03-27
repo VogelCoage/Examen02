@@ -31,7 +31,7 @@
                     
                     <td><a href="compras?clienteName=<c:out value="${cliente.name}"/>">Ver</a></td>                    
                     <td><a href="cuentas?clienteName=<c:out value="${cliente.name}"/>">Ver</a></td>
-	    				<td>Pendiente</a></td>
+	    				<td><a href="cheques?clienteName=<c:out value="${cliente.name}"/>">Ver</a></td>
 	    				<td>Pendiente</a></td>
                     <td><a href="editar?clienteName=<c:out value="${cliente.name}"/>">Actualizar</a></td>
                 </tr>
